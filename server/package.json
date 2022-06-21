@@ -10,6 +10,7 @@
   "author": "saadox",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "random-facts": "^1.0.6",
     "socket.io": "^4.5.1"
