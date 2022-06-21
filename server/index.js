@@ -6,24 +6,28 @@ const server = http.createServer(app);
 const rf = require('random-facts');
 const cors = require('cors');
 const { Server } = require('socket.io')
-const io = new Server(server, { cors: { origin: '*' } });
+const io = new Server(server, { cors: { origin: '*' }, path: '/' });
 
-const corsOptions = {
-    origin: function(origin, callback) {
-        callback(null, true);
-    },
-    credentials: true
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//     origin: function(origin, callback) {
+//         callback(null, true);
+//     },
+//     credentials: true
+// };
+// app.use(cors(corsOptions));
 const users = [{ username: 'Edouard', color: '#99ccff' }, { username: 'Dimitri', color: '#99ffcc'}, { username: 'Thibaut', color: '#cc99ff'}];
 
 const generateUser = () => {
     return users[Math.floor(Math.random() * users.length)]
 }
 
-app.get('/', (req, res) => {
-    res.send('hello world')
-})
+// app.get('/health', (req, res) => {
+//     console.log(req.query)
+//     res.send('hello world')
+// })
+// app.get('/interview-test', (req, res) => {
+//     res.send('hello test')
+// })
 // events will go here...
 io.on('connection', (socket) => {
     console.log('New User connected', socket.id);
