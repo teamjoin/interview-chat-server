@@ -20,6 +20,10 @@ const users = [{ username: 'Edouard', color: '#99ccff' }, { username: 'Dimitri',
 const generateUser = () => {
     return users[Math.floor(Math.random() * users.length)]
 }
+
+app.get('/', (req, res) => {
+    res.send('hello world')
+})
 // events will go here...
 io.on('connection', (socket) => {
     console.log('New User connected', socket.id);
