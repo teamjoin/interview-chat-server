@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  web1:
+    build: ./server
+    ports:
+      - '3030:3030'
+  nginx:
+    build: ./nginx
+    ports:
+      - '80:80'
+    depends_on:
+      - web1
