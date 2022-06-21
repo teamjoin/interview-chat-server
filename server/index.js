@@ -30,7 +30,7 @@ setInterval(() => {
     io.emit('new-message', { type:'text', text: rf.randomFact(), user: generateUser(), date: Date.now() } );
 }, 4000)
 
-const PORT = 3030; // process.env.PORT || 80;
+const PORT = 3000; // process.env.PORT || 80;
 const URL = `http://localhost:${PORT}/`;
 
 server.listen(PORT, () => console.log(`Listening on ${URL}`));
